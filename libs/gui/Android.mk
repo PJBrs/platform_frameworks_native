@@ -36,6 +36,11 @@ LOCAL_CPPFLAGS += -Wno-gnu-zero-variadic-macro-arguments
 # Don't warn about struct padding
 LOCAL_CPPFLAGS += -Wno-padded
 
+# MR0_CAMERA_BLOB
+ifeq (,$(findstring MR0_CAMERA_BLOB,$(LOCAL_CFLAGS)))
+LOCAL_CPPFLAGS += -Wno-return-type-c-linkage -Wno-unused-parameter -Wno-missing-prototypes
+endif
+
 LOCAL_SRC_FILES := \
 	IGraphicBufferConsumer.cpp \
 	IConsumerListener.cpp \
